@@ -10,8 +10,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c5e3b;
-            --secondary-color: #4a7c59;
+            --primary-color: #1e4d2b;
+            --secondary-color: #3b7a57;
             --accent-color: #f4f9f4;
         }
         body {
@@ -50,19 +50,20 @@
         .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
     </style>
 </head>
+
 <body>
 
     <!-- 導覽列 -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: var(--primary-color);">
         <div class="container">
-            <a class="navbar-brand font-weight-bold" href="#"><i class="fa-solid fa-robot me-2"></i>AI教學指引平臺</a>
+            <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-robot me-2"></i>AI教學指引研習平臺</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#summary">指引重點卡片</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#compare">版本差異比較</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#summary">重點摘要截取</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#compare">新舊版本差異</a></li>
                     <li class="nav-item"><a class="nav-link" href="#quiz">線上理解測驗</a></li>
                 </ul>
             </div>
@@ -74,17 +75,17 @@
         <div class="container">
             <h1 class="display-5 fw-bold mb-3">115年中小學教師數位與AI教學指引</h1>
             <p class="lead mb-4">掌握最新 AI 人才方舟計畫精神、慢 AI 理念與 AIPACK 學習設計</p>
-            <a href="#quiz" class="btn btn-warning btn-lg fw-bold px-4"><i class="fa-solid fa-pen-to-square me-2"></i>立即開始理解度測驗</a>
+            <a href="#quiz" class="btn btn-warning btn-lg fw-bold px-4 shadow"><i class="fa-solid fa-pen-to-square me-2"></i>立即開始理解度測驗</a>
         </div>
     </section>
 
     <div class="container">
 
-        <!-- 第一區塊：指引重點摘要截取卡片 -->
+        <!-- 第一區塊：指引重點摘要卡片 -->
         <section id="summary" class="mb-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold text-success"><i class="fa-solid fa-bookmark me-2"></i>指引核心重點截取</h2>
-                <span class="text-muted">點擊按鈕可直接複製文字重點至剪貼簿</span>
+                <span class="text-muted fs-6">點擊按鈕可直接複製文字重點，方便備課或製作簡報</span>
             </div>
             
             <div class="row g-4">
@@ -153,7 +154,7 @@
                     <div class="card card-custom p-3">
                         <div class="card-body">
                             <span class="badge badge-tag mb-2">第六章</span>
-                            <h5 class="card-title fw-bold">七大風險與WISE原則</h5>
+                            <h5 class="card-title fw-bold">七大風險與STEP原則</h5>
                             <p class="card-text text-secondary" id="text-ch6">
                                 應對認知卸載、錯假訊息、AI幻覺等七大風險。推動STEP查證法、THINK防卸載法、FACT防幻覺法與HUMAN以人為本原則。
                             </p>
@@ -232,24 +233,50 @@
         <section id="quiz" class="mb-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold text-success"><i class="fa-solid fa-circle-question me-2"></i>指引理解度線上測驗</h2>
-                <div class="fs-5 fw-bold" id="score-display">得分：0 / 0</div>
+                <div class="fs-5 fw-bold text-primary" id="score-display">答題進度：0 / 5</div>
             </div>
 
             <div id="quiz-container">
-                <!-- 題目將透過 JavaScript 自動渲染於此 -->
+                <!-- 題目將透過 JavaScript 自動渲染 -->
+            </div>
+
+            <!-- 新增：測驗完成診斷與延伸學習卡片 -->
+            <div id="diagnostic-report" class="card shadow-lg border-success d-none mt-5">
+                <div class="card-header bg-success text-white fw-bold fs-5 py-3">
+                    <i class="fa-solid fa-square-poll-vertical me-2"></i>測驗診斷報告與個人化延伸學習建議
+                </div>
+                <div class="card-body p-4">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-4 text-center border-end">
+                            <h6 class="text-muted">您的最終得分</h6>
+                            <div class="display-3 fw-bold text-success" id="final-score">0</div>
+                            <span class="badge bg-warning text-dark fs-6" id="score-level">評估中</span>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="fw-bold mb-2"><i class="fa-solid fa-lightbulb text-warning me-2"></i>研習建議與總結</h5>
+                            <p class="text-secondary mb-0" id="diagnostic-summary">完成測驗後將根據您的答題結果生成專屬進修建議。</p>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-dark border-bottom pb-2 mb-3">
+                        <i class="fa-solid fa-book-open me-2 text-success"></i>建議加強研讀指引章節與進修行動：
+                    </h5>
+                    <div id="recommendation-list" class="row g-3">
+                        <!-- 動態插入學習建議卡片 -->
+                    </div>
+                </div>
             </div>
         </section>
 
     </div>
 
     <footer class="bg-dark text-white text-center py-4 mt-5">
-        <p class="mb-0">依據教育部《115年中小學教師數位與AI教學指引》設計推廣平臺</p>
+        <p class="mb-0">依據教育部《115年中小學教師數位與AI教學指引》設計研習推廣平臺</p>
     </footer>
 
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // 一鍵複製功能
         function copyText(elementId) {
             const text = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(text).then(() => {
@@ -259,10 +286,12 @@
             });
         }
 
-        // 測驗題庫資料
         const quizData = [
             {
                 id: 1,
+                chapter: "第三章：認識人工智慧與應用",
+                chapterRef: "指引 3.1 節（AI Agent概念與代理式學習）",
+                advice: "建議重新閱讀第三章，釐清 AI Agent 具備「自主拆解目標與規劃流程」的特性，並思考如何引導學生運用代理人進行探究。",
                 question: "1. 根據115年指引，關於「生成式 AI」與「人工智慧代理人（AI Agent）」的敘述，下列何者最正確？",
                 options: [
                     "A) 生成式 AI 具備自主拆解任務與執行多步驟計畫的能力",
@@ -275,6 +304,9 @@
             },
             {
                 id: 2,
+                chapter: "核心精神：慢 AI 與 人類在迴圈中",
+                chapterRef: "指引導論與第二章（慢 AI 精神與教學設計）",
+                advice: "建議加強研讀「慢 AI」理念，學習如何在課堂設計中保留學生的提問、思考與認知掙扎時間，避免直接讓 AI 給予解答。",
                 question: "2. 指引中提出的「慢 AI」教育精神，其核心內涵為何？",
                 options: [
                     "A) 限制學校的網路頻寬，減少學生使用 AI 的時間",
@@ -287,6 +319,9 @@
             },
             {
                 id: 3,
+                chapter: "第六章：AI 時代數位素養與風險管理",
+                chapterRef: "指引 6.2 節（認知卸載防範與 THINK 原則）",
+                advice: "建議參閱第六章風險管理，學習如何引導學生將 AI 當作「思考夥伴」而非「代寫工具」，防範認知卸載與假懂現象。",
                 question: "3. 當學生將作業題目直接拍照貼給 AI 取得標準答案，導致沒有真正理解概念，這種現象稱為？",
                 options: [
                     "A) 資訊同溫層 (Filter Bubble)",
@@ -299,6 +334,9 @@
             },
             {
                 id: 4,
+                chapter: "第四章：教師數位與 AI 教學實務",
+                chapterRef: "指引 4.1 節（教育型 AI 與通用型 AI 選用）",
+                advice: "建議重新檢視第四章工具檢核表，優先嘗試使用具備教學倫理與資料保護的「教育型 AI」（如因材網 e 度）。",
                 question: "4. 指引建議教師優先選用的「教育型 AI」（如因材網 e 度），與「通用型 AI」（如 ChatGPT）主要差異為何？",
                 options: [
                     "A) 教育型 AI 生成文字速度比通用型 AI 快十倍",
@@ -311,6 +349,9 @@
             },
             {
                 id: 5,
+                chapter: "第六章：媒體識讀與查證原則",
+                chapterRef: "指引 6.3 節（STEP 四步查證法與媒體素養）",
+                advice: "建議研讀第六章 STEP 四步查證法（看來源、看時間、看證據、看觀點），並設計成融入學科的媒體識讀教案。",
                 question: "5. 為幫助學生防範 AI 時代的錯假訊息，指引建議使用的「STEP」四步查證法包含哪些步驟？",
                 options: [
                     "A) Search（搜尋）、Text（文字）、Edit（編輯）、Publish（發布）",
@@ -325,8 +366,8 @@
 
         let currentScore = 0;
         let answeredCount = 0;
+        let incorrectQuestions = [];
 
-        // 渲染測驗
         function renderQuiz() {
             const container = document.getElementById('quiz-container');
             container.innerHTML = '';
@@ -351,14 +392,13 @@
                     </div>
                 `;
             });
+            document.getElementById('score-display').innerText = `答題進度：0 / ${quizData.length}`;
         }
 
-        // 驗證答案
         function checkAnswer(qIndex, selectedIndex) {
             const q = quizData[qIndex];
             const explainDiv = document.getElementById(`explain-${qIndex}`);
             
-            // 防止重複點選
             const options = document.querySelectorAll(`[id^="opt-${qIndex}-"]`);
             let isAnswered = false;
             options.forEach(opt => {
@@ -368,7 +408,6 @@
             });
             if(isAnswered) return;
 
-            // 標示正確與錯誤選項
             options.forEach((opt, oIndex) => {
                 if(oIndex === q.answer) {
                     opt.classList.add('correct-bg');
@@ -378,18 +417,74 @@
                 }
             });
 
-            // 計算分數
             if(selectedIndex === q.answer) {
                 currentScore += 20;
+            } else {
+                incorrectQuestions.push(q);
             }
-            answeredCount++;
             
-            // 顯示得分與解析
-            document.getElementById('score-display').innerText = `得分：${currentScore} / ${quizData.length * 20}`;
+            answeredCount++;
+            document.getElementById('score-display').innerText = `答題進度：${answeredCount} / ${quizData.length}`;
             explainDiv.classList.remove('d-none');
+
+            // 全部答完後自動產生診斷報告
+            if (answeredCount === quizData.length) {
+                generateDiagnosticReport();
+            }
         }
 
-        // 頁面載入後自動渲染
+        function generateDiagnosticReport() {
+            const reportDiv = document.getElementById('diagnostic-report');
+            const scoreDisplay = document.getElementById('final-score');
+            const levelDisplay = document.getElementById('score-level');
+            const summaryDisplay = document.getElementById('diagnostic-summary');
+            const recList = document.getElementById('recommendation-list');
+
+            scoreDisplay.innerText = `${currentScore}分`;
+            recList.innerHTML = '';
+
+            if (currentScore === 100) {
+                levelDisplay.innerText = '評估等級：AI 教學領航員';
+                levelDisplay.className = 'badge bg-success fs-6';
+                summaryDisplay.innerText = '太棒了！您對115年新版指引的核心精神與實務規範有非常深刻的理解，可以試著帶領同嶺社群進行教案設計！';
+                recList.innerHTML = `
+                    <div class="col-12">
+                        <div class="card p-3 bg-light border-success">
+                            <h6 class="fw-bold text-success mb-1"><i class="fa-solid fa-award me-2"></i>完全掌握指引重點！</h6>
+                            <p class="text-secondary mb-0">建議可進一步閱讀指引<b>第五章（跨領域教案示例）</b>與<b>第七章（教師專業發展路徑）</b>，嘗試在學校推動跨科 AI 協作教案！</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                if (currentScore >= 60) {
+                    levelDisplay.innerText = '評估等級：AI 教學實踐者';
+                    levelDisplay.className = 'badge bg-warning text-dark fs-6';
+                    summaryDisplay.innerText = '您對指引已有相當程度的認識！針對答錯的概念，下方已為您整理需加強的章節與進修建議：';
+                } else {
+                    levelDisplay.innerText = '評估等級：AI 教學探索者';
+                    levelDisplay.className = 'badge bg-danger fs-6';
+                    summaryDisplay.innerText = '建議您重溫網頁頂部的重點摘要卡片，並深入閱讀以下章節，能幫助您更安心地在課堂融入 AI：';
+                }
+
+                // 針對錯題產生對應的章節建議卡片
+                incorrectQuestions.forEach(item => {
+                    recList.innerHTML += `
+                        <div class="col-md-6">
+                            <div class="card p-3 border-start border-4 border-danger h-100">
+                                <h6 class="fw-bold text-danger mb-1"><i class="fa-solid fa-book-bookmark me-2"></i>${item.chapter}</h6>
+                                <p class="small text-muted mb-2">對應章節：${item.chapterRef}</p>
+                                <p class="text-secondary small mb-0">${item.advice}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            reportDiv.classList.remove('d-none');
+            // 自動平滑滾動到診斷報告區域
+            reportDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
         document.addEventListener('DOMContentLoaded', renderQuiz);
     </script>
 </body>
