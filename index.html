@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-TW"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;115年中小學教師數位與AI教學指引 - 互動研習與測驗平臺&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Bootstrap 5 CSS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FontAwesome 圖示 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--primary-color: #2c5e3b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--secondary-color: #4a7c59;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #f4f9f4;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero-section {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 3rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-custom {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-custom:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5deg);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.badge-tag {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e8f5e9;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--primary-color);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.quiz-option {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.quiz-option:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f1f3f5;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 導覽列 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: var(--primary-color);"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="navbar-brand font-weight-bold" href="#"&gt;&lt;i class="fa-solid fa-robot me-2"&gt;&lt;/i&gt;AI教學指引平臺&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="collapse navbar-collapse" id="navbarNav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="navbar-nav ms-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="nav-item"&gt;&lt;a class="nav-link active" href="#summary"&gt;指引重點卡片&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#compare"&gt;版本差異比較&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#quiz"&gt;線上理解測驗&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 主頁橫幅 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero-section text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="display-5 fw-bold mb-3"&gt;115年中小學教師數位與AI教學指引&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="lead mb-4"&gt;掌握最新 AI 人才方舟計畫精神、慢 AI 理念與 AIPACK 學習設計&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#quiz" class="btn btn-warning btn-lg fw-bold px-4"&gt;&lt;i class="fa-solid fa-pen-to-square me-2"&gt;&lt;/i&gt;立即開始理解度測驗&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 第一區塊：指引重點摘要截取卡片 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="summary" class="mb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="d-flex justify-content-between align-items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="fw-bold text-success"&gt;&lt;i class="fa-solid fa-bookmark me-2"&gt;&lt;/i&gt;指引核心重點截取&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-muted"&gt;點擊按鈕可直接複製文字重點至剪貼簿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row g-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 第一章 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-md-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card card-custom p-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="badge badge-tag mb-2"&gt;第一章&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h5 class="card-title fw-bold"&gt;趨勢與願景&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="card-text text-secondary" id="text-ch1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>推動「AI人才方舟計畫（2026-2029）」，邁向一生一機政策。建置新一代AI學習系統（如因材網e度、CoolE Bot），落實數位平權與適性學習。</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch1')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i class="fa-regular fa-copy me-1"&gt;&lt;/i&gt;複製重點文字</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 第二章 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-md-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card card-custom p-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="badge badge-tag mb-2"&gt;第二章&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h5 class="card-title fw-bold"&gt;師生AI素養框架&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="card-text text-secondary" id="text-ch2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>教師與學生素養皆涵蓋「AI倫理、基礎與技術、賦能學習/教學」等四大面向，並採「取得理解 ➔ 深化應用 ➔ 創造轉型」螺旋發展。</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch2')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i class="fa-regular fa-copy me-1"&gt;&lt;/i&gt;複製重點文字</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 第三章 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-md-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card card-custom p-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="badge badge-tag mb-2"&gt;第三章&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h5 class="card-title fw-bold"&gt;AI代理人與紅綠燈&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="card-text text-secondary" id="text-ch3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>導入AI代理人（AI Agent）協作概念。建立紅黃綠燈判斷原則（紅燈禁止代答、黃燈條件協作、綠燈創新探索）與班級公約。</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch3')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i class="fa-regular fa-copy me-1"&gt;&lt;/i&gt;複製重點文字</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 第四章 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-md-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card card-custom p-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="badge badge-tag mb-2"&gt;第四章&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h5 class="card-title fw-bold"&gt;教育型 vs 通用型 AI&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="card-text text-secondary" id="text-ch4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>強調優先選用教育型AI（如因材網e度），因其具備教學法護欄與資料隱私保護；使用通用型AI需補足查證與防護機制。</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch4')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i class="fa-regular fa-copy me-1"&gt;&lt;/i&gt;複製重點文字</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 第六章 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-md-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card card-custom p-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="badge badge-tag mb-2"&gt;第六章&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h5 class="card-title fw-bold"&gt;七大風險與WISE原則&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="card-text text-secondary" id="text-ch6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>應對認知卸載、錯假訊息、AI幻覺等七大風險。推動STEP查證法、THINK防卸載法、FACT防幻覺法與HUMAN以人為本原則。</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch6')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i class="fa-regular fa-copy me-1"&gt;&lt;/i&gt;複製重點文字</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 核心精神 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="col-md-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card card-custom p-3 bg-light"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="badge bg-warning text-dark mb-2"&gt;核心精神&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h5 class="card-title fw-bold"&gt;慢 AI 與 人類在迴圈中&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="card-text text-secondary" id="text-core"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>「慢AI」不追求極致速度，而保留學生思考歷程；「Human in the Loop」確保教學目標與評價最終仍由人類決策與負責。</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-core')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;i class="fa-regular fa-copy me-1"&gt;&lt;/i&gt;複製重點文字</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;hr class="my-5"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 第二區塊：版本比較表 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="compare" class="mb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="fw-bold text-success mb-4"&gt;&lt;i class="fa-solid fa-code-compare me-2"&gt;&lt;/i&gt;新版指引 vs. 數位教學指引 3.0 對照表&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="table-responsive bg-white p-3 rounded-3 shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;table class="table table-hover align-middle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;thead class="table-success"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th width="20%"&gt;比較項目&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th width="40%"&gt;《中小學數位教學指引 3.0》（舊版）&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th width="40%"&gt;《115年中小學教師數位與AI教學指引》（最新版）&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td class="fw-bold"&gt;核心政策計畫&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;中小學數位學習精進方案（2022–2025）&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;&lt;span class="badge bg-danger"&gt;AI人才方舟計畫（2026–2029）&lt;/span&gt;，對接《人工智慧基本法》&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td class="fw-bold"&gt;技術導入焦點&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;數位載具、學習平臺應用、基礎生成式AI（GAI）對話&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;導入&lt;span class="badge bg-primary"&gt;人工智慧代理人（AI Agent）&lt;/span&gt;，強調任務自動拆解與目標規劃&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td class="fw-bold"&gt;素養框架規範&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;一般數位素養與基礎生成式AI應用概念&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;公布完整的臺灣&lt;span class="badge bg-success"&gt;「教師與學生 AI 素養框架」&lt;/span&gt;（各劃分四大面向與三層級）&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td class="fw-bold"&gt;工具分類界定&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;未特別劃分工具類別&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;嚴格界定&lt;span class="badge bg-info text-dark"&gt;教育型 AI&lt;/span&gt;（如因材網e度）與通用型 AI 之隱私護欄差異&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td class="fw-bold"&gt;教學實踐原則&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;強調科技融入課堂效率與平臺操作&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td&gt;強調&lt;span class="badge bg-warning text-dark"&gt;「慢 AI」精神&lt;/span&gt;與「人類在迴圈中 (Human in the Loop)」，防止認知卸載&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;hr class="my-5"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 第三區塊：線上理解測驗 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="quiz" class="mb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="d-flex justify-content-between align-items-center mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="fw-bold text-success"&gt;&lt;i class="fa-solid fa-circle-question me-2"&gt;&lt;/i&gt;指引理解度線上測驗&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="fs-5 fw-bold" id="score-display"&gt;得分：0 / 0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="quiz-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 題目將透過 JavaScript 自動渲染於此 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-dark text-white text-center py-4 mt-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="mb-0"&gt;依據教育部《115年中小學教師數位與AI教學指引》設計推廣平臺&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Bootstrap &amp; JavaScript --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 一鍵複製功能</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function copyText(elementId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const text = document.getElementById(elementId).innerText;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigator.clipboard.writeText(text).then(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("已成功複製重點文字！");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}).catch(err =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error("複製失敗: ", err);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 測驗題庫資料</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const quizData = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: "1. 根據115年指引，關於「生成式 AI」與「人工智慧代理人（AI Agent）」的敘述，下列何者最正確？",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>options: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"A) 生成式 AI 具備自主拆解任務與執行多步驟計畫的能力",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"B) 人工智慧代理人能依據目標，自主規劃步驟、運用工具並協助完成任務",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"C) 人工智慧代理人可以完全取代教師的專業判斷與成績評量",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"D) 生成式 AI 與 AI 代理人在教育應用上完全沒有功能差異"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>explain: "解析：B為正確答案。生成式 AI 主要以一次指令對應一次生成；人工智慧代理人（AI Agent）具有代理式能力，能依目標自主規劃步驟與調用工具，但仍不可取代教師的專業判斷。"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 2,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: "2. 指引中提出的「慢 AI」教育精神，其核心內涵為何？",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>options: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"A) 限制學校的網路頻寬，減少學生使用 AI 的時間",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"B) 讓 AI 盡可能加速完成所有備課與作業寫作",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"C) 在人機協作中保留提問、查證、討論與反思的時間，讓學生經歷必要的認知掙扎",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"D) 只在學期末進行一次 AI 工具的檢討與評估"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: 2,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>explain: "解析：C為正確答案。「慢 AI」指不讓 AI 加速取代思考，而是保留學生經歷必要認知掙扎、進行提問與反思的時間。"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 3,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: "3. 當學生將作業題目直接拍照貼給 AI 取得標準答案，導致沒有真正理解概念，這種現象稱為？",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>options: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"A) 資訊同溫層 (Filter Bubble)",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"B) 認知卸載 (Cognitive Offloading) 與學習外包",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"C) AI 幻覺 (AI Hallucination)",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"D) 情感依附錯位"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>explain: "解析：B為正確答案。將思考與推理歷程過度轉移給 AI 處理稱為「認知卸載」，容易產生虛假精熟。"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 4,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: "4. 指引建議教師優先選用的「教育型 AI」（如因材網 e 度），與「通用型 AI」（如 ChatGPT）主要差異為何？",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>options: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"A) 教育型 AI 生成文字速度比通用型 AI 快十倍",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"B) 教育型 AI 具備課程對應性、適齡設計、教學法護欄與學生資料保護機制",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"C) 通用型 AI 完全無法應用於任何教學場域",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"D) 教育型 AI 不需要任何教師引導即可由學生單獨全自動學習"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>explain: "解析：B為正確答案。教育型 AI（如因材網 e 度）以促進學習為核心，符合課綱指標，並設有年齡適切性與資料保護護欄。"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 5,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: "5. 為幫助學生防範 AI 時代的錯假訊息，指引建議使用的「STEP」四步查證法包含哪些步驟？",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>options: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"A) Search（搜尋）、Text（文字）、Edit（編輯）、Publish（發布）",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"B) Sources（看來源）、Time（看時間）、Evidence（看證據）、Perspectives（看觀點）",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"C) Safety（安全）、Trust（信任）、Error（錯誤）、Protection（保護）",</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"D) System（系統）、Technology（技術）、Evaluation（評估）、Process（歷程）"</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answer: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>explain: "解析：B為正確答案。STEP 四步查證法分別為看來源 (Sources)、看時間 (Time)、看證據 (Evidence) 與看觀點 (Perspectives)。"</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentScore = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let answeredCount = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 渲染測驗</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function renderQuiz() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('quiz-container');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>container.innerHTML = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>quizData.forEach((q, qIndex) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let optionsHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>q.options.forEach((opt, oIndex) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>optionsHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card p-3 mb-2 quiz-option" id="opt-${qIndex}-${oIndex}" onclick="checkAnswer(${qIndex}, ${oIndex})"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>${opt}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>container.innerHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-4 mb-4 shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h5 class="fw-bold mb-3"&gt;${q.question}&lt;/h5&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;${optionsHTML}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="alert alert-info mt-3 d-none" id="explain-${qIndex}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>${q.explain}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 驗證答案</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function checkAnswer(qIndex, selectedIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const q = quizData[qIndex];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const explainDiv = document.getElementById(`explain-${qIndex}`);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 防止重複點選</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const options = document.querySelectorAll(`[id^="opt-${qIndex}-"]`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let isAnswered = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options.forEach(opt =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(opt.classList.contains('correct-bg') || opt.classList.contains('incorrect-bg')) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>isAnswered = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(isAnswered) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 標示正確與錯誤選項</p>
+<p class="p1"><span class="Apple-converted-space">            </span>options.forEach((opt, oIndex) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(oIndex === q.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>opt.classList.add('correct-bg');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(oIndex === selectedIndex &amp;&amp; selectedIndex !== q.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>opt.classList.add('incorrect-bg');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 計算分數</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(selectedIndex === q.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentScore += 20;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>answeredCount++;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 顯示得分與解析</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('score-display').innerText = `得分：${currentScore} / ${quizData.length * 20}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>explainDiv.classList.remove('d-none');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 頁面載入後自動渲染</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', renderQuiz);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
