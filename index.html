@@ -2,10 +2,395 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>測試網頁</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>115年中小學教師數位與AI教學指引 - 互動研習與測驗平臺</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 圖示 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c5e3b;
+            --secondary-color: #4a7c59;
+            --accent-color: #f4f9f4;
+        }
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        .card-custom:hover {
+            transform: translateY(-5deg);
+        }
+        .badge-tag {
+            background-color: #e8f5e9;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .quiz-option {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .quiz-option:hover {
+            background-color: #f1f3f5;
+        }
+        .correct-bg { background-color: #d4edda !important; border-color: #c3e6cb !important; }
+        .incorrect-bg { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
+    </style>
 </head>
 <body>
-    <h1>🎉 網頁設定成功！</h1>
-    <p>這代表 GitHub Pages 已經可以正常顯示網頁畫面囉！</p>
+
+    <!-- 導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#"><i class="fa-solid fa-robot me-2"></i>AI教學指引平臺</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#summary">指引重點卡片</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#compare">版本差異比較</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">線上理解測驗</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主頁橫幅 -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold mb-3">115年中小學教師數位與AI教學指引</h1>
+            <p class="lead mb-4">掌握最新 AI 人才方舟計畫精神、慢 AI 理念與 AIPACK 學習設計</p>
+            <a href="#quiz" class="btn btn-warning btn-lg fw-bold px-4"><i class="fa-solid fa-pen-to-square me-2"></i>立即開始理解度測驗</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- 第一區塊：指引重點摘要截取卡片 -->
+        <section id="summary" class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-success"><i class="fa-solid fa-bookmark me-2"></i>指引核心重點截取</h2>
+                <span class="text-muted">點擊按鈕可直接複製文字重點至剪貼簿</span>
+            </div>
+            
+            <div class="row g-4">
+                <!-- 第一章 -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-3">
+                        <div class="card-body">
+                            <span class="badge badge-tag mb-2">第一章</span>
+                            <h5 class="card-title fw-bold">趨勢與願景</h5>
+                            <p class="card-text text-secondary" id="text-ch1">
+                                推動「AI人才方舟計畫（2026-2029）」，邁向一生一機政策。建置新一代AI學習系統（如因材網e度、CoolE Bot），落實數位平權與適性學習。
+                            </p>
+                            <button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch1')">
+                                <i class="fa-regular fa-copy me-1"></i>複製重點文字
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第二章 -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-3">
+                        <div class="card-body">
+                            <span class="badge badge-tag mb-2">第二章</span>
+                            <h5 class="card-title fw-bold">師生AI素養框架</h5>
+                            <p class="card-text text-secondary" id="text-ch2">
+                                教師與學生素養皆涵蓋「AI倫理、基礎與技術、賦能學習/教學」等四大面向，並採「取得理解 ➔ 深化應用 ➔ 創造轉型」螺旋發展。
+                            </p>
+                            <button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch2')">
+                                <i class="fa-regular fa-copy me-1"></i>複製重點文字
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第三章 -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-3">
+                        <div class="card-body">
+                            <span class="badge badge-tag mb-2">第三章</span>
+                            <h5 class="card-title fw-bold">AI代理人與紅綠燈</h5>
+                            <p class="card-text text-secondary" id="text-ch3">
+                                導入AI代理人（AI Agent）協作概念。建立紅黃綠燈判斷原則（紅燈禁止代答、黃燈條件協作、綠燈創新探索）與班級公約。
+                            </p>
+                            <button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch3')">
+                                <i class="fa-regular fa-copy me-1"></i>複製重點文字
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第四章 -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-3">
+                        <div class="card-body">
+                            <span class="badge badge-tag mb-2">第四章</span>
+                            <h5 class="card-title fw-bold">教育型 vs 通用型 AI</h5>
+                            <p class="card-text text-secondary" id="text-ch4">
+                                強調優先選用教育型AI（如因材網e度），因其具備教學法護欄與資料隱私保護；使用通用型AI需補足查證與防護機制。
+                            </p>
+                            <button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch4')">
+                                <i class="fa-regular fa-copy me-1"></i>複製重點文字
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第六章 -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-3">
+                        <div class="card-body">
+                            <span class="badge badge-tag mb-2">第六章</span>
+                            <h5 class="card-title fw-bold">七大風險與WISE原則</h5>
+                            <p class="card-text text-secondary" id="text-ch6">
+                                應對認知卸載、錯假訊息、AI幻覺等七大風險。推動STEP查證法、THINK防卸載法、FACT防幻覺法與HUMAN以人為本原則。
+                            </p>
+                            <button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-ch6')">
+                                <i class="fa-regular fa-copy me-1"></i>複製重點文字
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 核心精神 -->
+                <div class="col-md-4">
+                    <div class="card card-custom p-3 bg-light">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">核心精神</span>
+                            <h5 class="card-title fw-bold">慢 AI 與 人類在迴圈中</h5>
+                            <p class="card-text text-secondary" id="text-core">
+                                「慢AI」不追求極致速度，而保留學生思考歷程；「Human in the Loop」確保教學目標與評價最終仍由人類決策與負責。
+                            </p>
+                            <button class="btn btn-outline-success btn-sm w-100" onclick="copyText('text-core')">
+                                <i class="fa-regular fa-copy me-1"></i>複製重點文字
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- 第二區塊：版本比較表 -->
+        <section id="compare" class="mb-5">
+            <h2 class="fw-bold text-success mb-4"><i class="fa-solid fa-code-compare me-2"></i>新版指引 vs. 數位教學指引 3.0 對照表</h2>
+            <div class="table-responsive bg-white p-3 rounded-3 shadow-sm">
+                <table class="table table-hover align-middle">
+                    <thead class="table-success">
+                        <tr>
+                            <th width="20%">比較項目</th>
+                            <th width="40%">《中小學數位教學指引 3.0》（舊版）</th>
+                            <th width="40%">《115年中小學教師數位與AI教學指引》（最新版）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">核心政策計畫</td>
+                            <td>中小學數位學習精進方案（2022–2025）</td>
+                            <td><span class="badge bg-danger">AI人才方舟計畫（2026–2029）</span>，對接《人工智慧基本法》</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">技術導入焦點</td>
+                            <td>數位載具、學習平臺應用、基礎生成式AI（GAI）對話</td>
+                            <td>導入<span class="badge bg-primary">人工智慧代理人（AI Agent）</span>，強調任務自動拆解與目標規劃</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">素養框架規範</td>
+                            <td>一般數位素養與基礎生成式AI應用概念</td>
+                            <td>公布完整的臺灣<span class="badge bg-success">「教師與學生 AI 素養框架」</span>（各劃分四大面向與三層級）</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">工具分類界定</td>
+                            <td>未特別劃分工具類別</td>
+                            <td>嚴格界定<span class="badge bg-info text-dark">教育型 AI</span>（如因材網e度）與通用型 AI 之隱私護欄差異</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">教學實踐原則</td>
+                            <td>強調科技融入課堂效率與平臺操作</td>
+                            <td>強調<span class="badge bg-warning text-dark">「慢 AI」精神</span>與「人類在迴圈中 (Human in the Loop)」，防止認知卸載</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- 第三區塊：線上理解測驗 -->
+        <section id="quiz" class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-success"><i class="fa-solid fa-circle-question me-2"></i>指引理解度線上測驗</h2>
+                <div class="fs-5 fw-bold" id="score-display">得分：0 / 0</div>
+            </div>
+
+            <div id="quiz-container">
+                <!-- 題目將透過 JavaScript 自動渲染於此 -->
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="mb-0">依據教育部《115年中小學教師數位與AI教學指引》設計推廣平臺</p>
+    </footer>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 一鍵複製功能
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("已成功複製重點文字！");
+            }).catch(err => {
+                console.error("複製失敗: ", err);
+            });
+        }
+
+        // 測驗題庫資料
+        const quizData = [
+            {
+                id: 1,
+                question: "1. 根據115年指引，關於「生成式 AI」與「人工智慧代理人（AI Agent）」的敘述，下列何者最正確？",
+                options: [
+                    "A) 生成式 AI 具備自主拆解任務與執行多步驟計畫的能力",
+                    "B) 人工智慧代理人能依據目標，自主規劃步驟、運用工具並協助完成任務",
+                    "C) 人工智慧代理人可以完全取代教師的專業判斷與成績評量",
+                    "D) 生成式 AI 與 AI 代理人在教育應用上完全沒有功能差異"
+                ],
+                answer: 1,
+                explain: "解析：B為正確答案。生成式 AI 主要以一次指令對應一次生成；人工智慧代理人（AI Agent）具有代理式能力，能依目標自主規劃步驟與調用工具，但仍不可取代教師的專業判斷。"
+            },
+            {
+                id: 2,
+                question: "2. 指引中提出的「慢 AI」教育精神，其核心內涵為何？",
+                options: [
+                    "A) 限制學校的網路頻寬，減少學生使用 AI 的時間",
+                    "B) 讓 AI 盡可能加速完成所有備課與作業寫作",
+                    "C) 在人機協作中保留提問、查證、討論與反思的時間，讓學生經歷必要的認知掙扎",
+                    "D) 只在學期末進行一次 AI 工具的檢討與評估"
+                ],
+                answer: 2,
+                explain: "解析：C為正確答案。「慢 AI」指不讓 AI 加速取代思考，而是保留學生經歷必要認知掙扎、進行提問與反思的時間。"
+            },
+            {
+                id: 3,
+                question: "3. 當學生將作業題目直接拍照貼給 AI 取得標準答案，導致沒有真正理解概念，這種現象稱為？",
+                options: [
+                    "A) 資訊同溫層 (Filter Bubble)",
+                    "B) 認知卸載 (Cognitive Offloading) 與學習外包",
+                    "C) AI 幻覺 (AI Hallucination)",
+                    "D) 情感依附錯位"
+                ],
+                answer: 1,
+                explain: "解析：B為正確答案。將思考與推理歷程過度轉移給 AI 處理稱為「認知卸載」，容易產生虛假精熟。"
+            },
+            {
+                id: 4,
+                question: "4. 指引建議教師優先選用的「教育型 AI」（如因材網 e 度），與「通用型 AI」（如 ChatGPT）主要差異為何？",
+                options: [
+                    "A) 教育型 AI 生成文字速度比通用型 AI 快十倍",
+                    "B) 教育型 AI 具備課程對應性、適齡設計、教學法護欄與學生資料保護機制",
+                    "C) 通用型 AI 完全無法應用於任何教學場域",
+                    "D) 教育型 AI 不需要任何教師引導即可由學生單獨全自動學習"
+                ],
+                answer: 1,
+                explain: "解析：B為正確答案。教育型 AI（如因材網 e 度）以促進學習為核心，符合課綱指標，並設有年齡適切性與資料保護護欄。"
+            },
+            {
+                id: 5,
+                question: "5. 為幫助學生防範 AI 時代的錯假訊息，指引建議使用的「STEP」四步查證法包含哪些步驟？",
+                options: [
+                    "A) Search（搜尋）、Text（文字）、Edit（編輯）、Publish（發布）",
+                    "B) Sources（看來源）、Time（看時間）、Evidence（看證據）、Perspectives（看觀點）",
+                    "C) Safety（安全）、Trust（信任）、Error（錯誤）、Protection（保護）",
+                    "D) System（系統）、Technology（技術）、Evaluation（評估）、Process（歷程）"
+                ],
+                answer: 1,
+                explain: "解析：B為正確答案。STEP 四步查證法分別為看來源 (Sources)、看時間 (Time)、看證據 (Evidence) 與看觀點 (Perspectives)。"
+            }
+        ];
+
+        let currentScore = 0;
+        let answeredCount = 0;
+
+        // 渲染測驗
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            quizData.forEach((q, qIndex) => {
+                let optionsHTML = '';
+                q.options.forEach((opt, oIndex) => {
+                    optionsHTML += `
+                        <div class="card p-3 mb-2 quiz-option" id="opt-${qIndex}-${oIndex}" onclick="checkAnswer(${qIndex}, ${oIndex})">
+                            ${opt}
+                        </div>
+                    `;
+                });
+
+                container.innerHTML += `
+                    <div class="card p-4 mb-4 shadow-sm">
+                        <h5 class="fw-bold mb-3">${q.question}</h5>
+                        <div>${optionsHTML}</div>
+                        <div class="alert alert-info mt-3 d-none" id="explain-${qIndex}">
+                            ${q.explain}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // 驗證答案
+        function checkAnswer(qIndex, selectedIndex) {
+            const q = quizData[qIndex];
+            const explainDiv = document.getElementById(`explain-${qIndex}`);
+            
+            // 防止重複點選
+            const options = document.querySelectorAll(`[id^="opt-${qIndex}-"]`);
+            let isAnswered = false;
+            options.forEach(opt => {
+                if(opt.classList.contains('correct-bg') || opt.classList.contains('incorrect-bg')) {
+                    isAnswered = true;
+                }
+            });
+            if(isAnswered) return;
+
+            // 標示正確與錯誤選項
+            options.forEach((opt, oIndex) => {
+                if(oIndex === q.answer) {
+                    opt.classList.add('correct-bg');
+                }
+                if(oIndex === selectedIndex && selectedIndex !== q.answer) {
+                    opt.classList.add('incorrect-bg');
+                }
+            });
+
+            // 計算分數
+            if(selectedIndex === q.answer) {
+                currentScore += 20;
+            }
+            answeredCount++;
+            
+            // 顯示得分與解析
+            document.getElementById('score-display').innerText = `得分：${currentScore} / ${quizData.length * 20}`;
+            explainDiv.classList.remove('d-none');
+        }
+
+        // 頁面載入後自動渲染
+        document.addEventListener('DOMContentLoaded', renderQuiz);
+    </script>
 </body>
 </html>
